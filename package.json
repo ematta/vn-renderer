@@ -1,0 +1,28 @@
+{
+  "name": "ccr-sim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "keywords": [],
+  "scripts": {
+    "clean": "rm story.json; rm index.html",
+    "story": "inklecate -o story.json story/main.ink",
+    "html": "node src/script/storyToHtml.js",
+    "build": "npm run story && npm run html",
+    "rebuild": "npm run clean && npm run build",
+    "build:all": "electron-builder -mwl",
+    "prestart": "npm run rebuild",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "window": {
+    "min_width": 400,
+    "min_height": 400
+  },
+  "devDependencies": {
+    "ejs": "^3.1.6",
+    "electron": "^13.1.5",
+    "electron-builder": "^22.11.7"
+  }
+}
